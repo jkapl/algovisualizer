@@ -1,0 +1,5 @@
+const algorithms = {
+  quickSort: (array) => {
+    
+  }
+}

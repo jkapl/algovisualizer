@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/App.jsx',
+  entry: './src/Index.js',
   module: {
     rules: [
       {
