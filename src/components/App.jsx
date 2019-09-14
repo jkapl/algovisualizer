@@ -1,14 +1,15 @@
-import React from 'react';
-import Lines from 'Lines';
+import React, { useState } from 'react';
+import quickSort  from '../algorithms/index';
 
 const App = () => {
-  const [algoData, setAlgoData] = useState([]);
-
+  const [algoData, setAlgoData] = useState([9,5,4,2,4,32,3]);
+  const [nums, setNums] = useState([9,5,4,2,4,32,3]);
 
   return (
     <div>
+      <button onClick={() => { setAlgoData(quickSort(nums)) } }></button>
       {algoData.map(line => {
-        <span>line</span>
+        return <span> - {line}</span>
       })}
     </div>
   )
