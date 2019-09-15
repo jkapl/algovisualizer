@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import quickSort  from '../algorithms/index';
+import { quickSort } from '../algorithms/index';
 
 const App = () => {
   const [algoData, setAlgoData] = useState([9,5,4,2,4,32,3]);
