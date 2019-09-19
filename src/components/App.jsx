@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-import { quickSort } from '../algorithms/index';
+import { quickSortInPlace } from '../algorithms/index';
 
 const App = () => {
   const [algoData, setAlgoData] = useState([9,5,4,2,4,32,3]);
   const [nums, setNums] = useState([9,5,4,2,4,32,3]);
-  const intermediateObj = {};
-  const count = [0];
+  const iterations = {};
+  let count = 0;
+  quickSortInPlace(algoData);
 
   return (
     <div>
-      <button onClick={() => setAlgoData(quickSort(nums, intermediateObj, count))  }></button>
+      <button onClick={() => {
+        // quickSortInPlace(numArray)
+        console.log(algoData)
+      }}></button>
       {algoData.map(line => {
         return <span> - {line}</span>
       })}
