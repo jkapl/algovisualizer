@@ -21,8 +21,8 @@ const quickSort = (array, intermediateObj, iterations) => {
   return [...quickSort(left, intermediateObj, iterations), pivot, ...quickSort(right, intermediateObj, iterations)]
 }
 
-export const quickSortInPlace = (array, low, high, iterations, count) => {
-  // iterations[count++] = JSON.stringify(array);
+export const quickSortInPlace = (iterations, count, array, low, high) => {
+  iterations[count++] = JSON.stringify(array);
   let pivotIndex;
   if (!low) low = 0;
   if (!high) high = array.length - 1;
@@ -44,8 +44,10 @@ export const quickSortInPlace = (array, low, high, iterations, count) => {
   }
   if (low < high) {
     pivotIndex = partition(array, low, high)
-    quickSortInPlace(array, low, pivotIndex -1)
-    quickSortInPlace(array, pivotIndex+1, high)    
+    quickSortInPlace(iterations, count, array, low, pivotIndex -1);
+    quickSortInPlace(iterations, count, array, pivotIndex + 1, high);
+    // quickSortInPlace(array, low, pivotIndex -1, iterations, count)
+    // quickSortInPlace(array, pivotIndex+1, high, iterations, count)    
   }
   return array;
 }

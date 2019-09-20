@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { quickSortInPlace } from '../algorithms/index';
 
 const App = () => {
-  const [algoData, setAlgoData] = useState([9,5,4,2,4,32,3]);
+  let arr = [];
+  for (let i = 0; i < 50; i++) {
+    arr.push(Math.round(Math.random()*50));
+  } 
+  const [algoData, setAlgoData] = useState([...arr]);
   const [nums, setNums] = useState([9,5,4,2,4,32,3]);
   const iterations = {};
   let count = 0;
-  quickSortInPlace(algoData);
+
+  useEffect(() => {
+    let toSort = algoData.slice();
+    let sorted = quickSortInPlace(iterations, count, toSort);    
+  });
 
   return (
     <div>
       <button onClick={() => {
-        // quickSortInPlace(numArray)
-        console.log(algoData)
+        setAlgoData([...toSort]);
       }}></button>
       {algoData.map(line => {
         return <span> - {line}</span>
